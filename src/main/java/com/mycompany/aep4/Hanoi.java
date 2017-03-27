@@ -1,6 +1,6 @@
 package com.mycompany.aep4;
 
-import java.math.BigDecimal;
+
 import java.util.ArrayList;
 
 public final class Hanoi {
@@ -16,7 +16,7 @@ public final class Hanoi {
     }   
     
     public void iniciarDiscos(int qnt) {
-        for (int diametro = 0; diametro < qnt; diametro++) {
+        for (int diametro = qnt-1; diametro > -1; diametro--) {
             discos.add(diametro+1);
             System.out.println(discos.toString()+"INICIADO DISCO\n========================");
         }
@@ -65,8 +65,8 @@ public final class Hanoi {
     
     public boolean mov1to2() {
         if (validaMov(pino1, pino2)) {
-            String vlr = pino1.get(0).toString();
-            pino1.remove(0);
+            String vlr = pino1.get(pino1.size()-1).toString();
+            pino1.remove(pino1.size()-1);
             pino2.add(vlr);
             System.out.println("MOVIMENTO 1 TO 2 --> "+vlr+" to ==> "+pino2.toString());
             return true;
@@ -76,45 +76,53 @@ public final class Hanoi {
     
     public boolean mov1to3() {
         if (validaMov(pino1, pino3)) {
-            String vlr = pino1.get(0).toString();
-            pino1.remove(0);
+            String vlr = pino1.get(pino1.size()-1).toString();
+            pino1.remove(pino1.size()-1);
             pino3.add(vlr);
             System.out.println("MOVIMENTO 1 TO 3 --> "+vlr+" to ==> "+pino3.toString());
+            System.out.println(pino1.toString());
             return true;
         }
+        System.out.println(pino1.toString());
         return false;
     }
     
     public boolean mov2to1() {
         if (validaMov(pino2, pino1) == true) {
-            String vlr = pino2.get(0).toString();
-            pino2.remove(0);
+            String vlr = pino2.get(pino2.size()-1).toString();
+            pino2.remove(pino2.size()-1);
             pino1.add(vlr);
             System.out.println("MOVIMENTO 2 TO 1 --> "+vlr+" to ==> "+pino1.toString()); 
+            System.out.println(pino1.toString());
             return true;
         }
+        System.out.println(pino1.toString());
         return false;
     }  
     
     public boolean mov2to3() {
         if (validaMov(pino2, pino1) == true) {
-            String vlr = pino2.get(0).toString();
-            pino2.remove(0);
+            String vlr = pino2.get(pino2.size()-1).toString();
+            pino2.remove(pino2.size()-1);
             pino3.add(vlr);
             System.out.println("MOVIMENTO 2 TO 1 --> "+vlr+" to ==> "+pino3.toString()); 
+            System.out.println(pino2.toString());
             return true;
         }
+        System.out.println(pino2.toString());
         return false;
     } 
     
     public boolean mov3to1() {
         if (validaMov(pino3, pino1)) {
-            String vlr = pino3.get(0).toString();
-            pino3.remove(0);
+            String vlr = pino3.get(pino3.size()-1).toString();
+            pino3.remove(pino3.size()-1);
             pino1.add(vlr);
             System.out.println("MOVIMENTO 3 TO 1 --> "+vlr+" to ==> "+pino1.toString());
+            System.out.println(pino3.toString());
             return true;
         }
+        System.out.println(pino3.toString());
         return false;
     }
     
@@ -124,8 +132,10 @@ public final class Hanoi {
             pino3.remove(0);
             pino2.add(vlr);
             System.out.println("MOVIMENTO 3 TO 2 --> "+vlr+" to ==> "+pino2.toString());
+            System.out.println(pino3.toString());
             return true;
         }
+        System.out.println(pino3.toString());
         return false;
     }
     
@@ -140,10 +150,10 @@ public final class Hanoi {
                 int vl1 = Integer.parseInt(mov1.get(tm1-1).toString());
                 int vl2 = Integer.parseInt(mov2.get(tm2-1).toString());
                 if (vl2 > vl1) {
-                    System.out.println("SUMEMO! "+mov1.get(0).toString()+" É MENOR QUE "+mov2.get(0).toString());
+                    System.out.println("SUMEMO! "+mov1.get(tm1-1).toString()+" É MENOR QUE "+mov2.get(tm1-1).toString());
                     return true;
                 } else if (vl2 < vl1){
-                    System.out.println("TA ZUADO! "+mov1.get(0).toString()+" É MAIOR QUE "+mov2.get(0).toString());
+                    System.out.println("TA ZUADO! "+mov1.get(tm2-1).toString()+" É MAIOR QUE "+mov2.get(tm2-1).toString());
                 } else {
                     System.out.println("TA ZUADO! NÃO PODE COLOCAR O ELEMENTO DE UM PINO NELE MEMO");
                 }
@@ -153,5 +163,11 @@ public final class Hanoi {
         }      
         return false;
     }
+    
+    public String graf1() {
+        
+        return pino1.toString();
+    }
+    
     
 }

@@ -11,14 +11,14 @@ public class HanoiTeste {
     public void quantPinos() {
         Hanoi hanoi = new Hanoi();
         hanoi.iniciarDiscos(6);
-        assertThat(hanoi.pino1.toString()).isEqualTo("[1, 2, 3, 4, 5, 6]");
+        assertThat(hanoi.pino1.toString()).isEqualTo("[6, 5, 4, 3, 2, 1]");
     }
     
     @Test
     public void discosEmpilhados() {
         Hanoi hanoi = new Hanoi();
         hanoi.iniciarDiscos(5);
-        assertThat(hanoi.discos.toString()).isEqualTo("[1, 2, 3, 4, 5]");
+        assertThat(hanoi.discos.toString()).isEqualTo("[5, 4, 3, 2, 1]");
     }
     
     @Test
@@ -49,9 +49,16 @@ public class HanoiTeste {
         hanoi.mov1to2();
         hanoi.mov1to2();
         
-        assertThat(hanoi.pino1.toString()).isEqualTo("[4, 5, 6, 7, 8]");
+        assertThat(hanoi.pino1.toString()).isEqualTo("[8, 7, 6, 5, 4]");
         assertThat(hanoi.pino3.toString()).isEqualTo("[2, 1]");
     }
     
+    @Test
+    public void grafico() {
+        Hanoi hanoi = new Hanoi();
+        hanoi.iniciarDiscos(4);
+        
+        assertThat(hanoi.mov1to2()).isEqualTo(true);
+    }
     
 }

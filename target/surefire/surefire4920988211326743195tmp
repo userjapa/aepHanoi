@@ -1,0 +1,7 @@
+#surefire
+#Mon Mar 27 13:25:48 BRT 2017
+maven.ext.class.path=/usr/local/netbeans-8.2-linux/netbeans-8.2/java/maven-nblib/netbeans-eventspy.jar
+user.dir=/home/japa/NetBeansProjects/AEP4
+localRepository=/home/japa/.m2/repository
+basedir=/home/japa/NetBeansProjects/AEP4
+test=com.mycompany.aep4.HanoiTeste
