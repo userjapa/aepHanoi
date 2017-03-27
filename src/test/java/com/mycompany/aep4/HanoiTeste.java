@@ -5,6 +5,7 @@ import org.junit.Test;
 
 public class HanoiTeste {
     
+    // FICA ATENTO NO OUTPUT!!!
     
     // TESTE DOS PINOS
     @Test
@@ -14,6 +15,7 @@ public class HanoiTeste {
         assertThat(hanoi.pino1.toString()).isEqualTo("[8, 7, 6, 5, 4, 3, 2, 1]");
     }
     
+    // TESTE DE EMPILHAR
     @Test
     public void discosEmpilhados() {
         Hanoi hanoi = new Hanoi();
@@ -21,6 +23,7 @@ public class HanoiTeste {
         assertThat(hanoi.discos.toString()).isEqualTo("[7, 6, 5, 4, 3, 2, 1]");
     }
     
+    // TESTE DOS DIAMETROS
     @Test
     public void diametroDiscos() {
         Hanoi hanoi = new Hanoi();
@@ -32,6 +35,7 @@ public class HanoiTeste {
         assertThat(diametros).isEqualTo(" - DISCO 1: DIAMETRO 1 - \nDISCO 2: DIAMETRO 2 - \nDISCO 3: DIAMETRO 3 - \nDISCO 4: DIAMETRO 4 - \nDISCO 5: DIAMETRO 5 - \nDISCO 6: DIAMETRO 6 - \n");
     }
     
+    // TESTE DE MOVIMENTO
     @Test
     public void tranferencia() {
         Hanoi hanoi = new Hanoi();
@@ -39,6 +43,7 @@ public class HanoiTeste {
         assertThat(hanoi.validaMov(hanoi.pino1, hanoi.pino1)).isEqualTo(false);
     }
     
+    // TESTE DE MOVIMENTO INVÁLIDO
     @Test
     public void movInvalido() {
         Hanoi hanoi = new Hanoi();
@@ -53,6 +58,7 @@ public class HanoiTeste {
         assertThat(hanoi.pino3.toString()).isEqualTo("[2, 1]");
     }
     
+    // TESTE DO GRÁFICO
     @Test
     public void grafico() {
         Hanoi hanoi = new Hanoi();
